@@ -3,7 +3,7 @@ defaults:
     scope:
       path: ""
     values:
-      layout: "home"
+      layout: "index"
       author: "Frick"
 permalink: /:year/:month/:title/
 

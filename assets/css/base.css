@@ -1,0 +1,553 @@
+/* Custom properties/variables  */
+:root {
+  --main-white: #ffffff;
+  --main-red: #ff63bd;
+  --main-blue: #0b2756;
+  --main-gray: #303841;
+  --main-purple: #9a76d6;
+  --gradient-blue: #3fa9f3
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 60%; /* ajustement de la taille de police pour les écrans plus grands */
+  }
+}
+
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%; /* ajustement de la taille de police pour les écrans moyens */
+  }
+}
+
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%; /* ajustement de la taille de police pour les écrans plus petits */
+  }
+}
+
+h2 {
+	font-family: "Jacquard 12", system-ui;
+  font-size: 5.8rem;
+  font-weight: 400;
+  color: var(--main-red);
+}
+
+h3 {
+	  font-family: "Micro 5", sans-serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--main-purple);
+}
+
+p {
+  font-family: "Oswald", sans-serif;
+  font-size: 24px;
+  font-weight: 200;
+  color: var(--main-white);
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base styles */
+
+.img-template {
+	border: 1px solid #000000;
+  border-radius: 2px;
+  padding: 5px;
+  width: 400px;
+  background-color: #ffffff;
+  margin-top: 170px;
+}
+
+.symbols {
+  color: inherit;
+  width: 90px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+/* Header */
+.site-header {
+  background-image: url('../images/banner_pixels.png');
+  background-size: contain;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  text-align: center;
+}
+
+.site-header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-branding {
+  align-items: center;
+  display: flex;
+}
+
+/* Pour les écrans plus petits */
+@media (max-width: 768px) {
+  .site-header__wrapper {
+    padding: 10px; /* Réduire l'espace autour des éléments */
+  }
+  }
+
+.site-branding__image {
+  color: inherit;
+  margin-left: auto;
+  max-width: 250px;
+  max-height: 250px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.site-branding__title {
+  font-family: "Jacquard 12", system-ui;
+  font-style: normal;
+  font-size: 64px;
+  color: #ffffff;
+  text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.site-branding__description {
+  font-family: "Micro 5", sans-serif;
+  font-style: normal;
+  font-size: 32px;
+  color: #ffffff;
+  text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Styles pour les écrans larges */
+.site-nav {
+  list-style: none;
+  margin: 0 auto; /* Ajout de marges automatiques à gauche et à droite */
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centrer les éléments horizontalement */
+}
+
+.site-nav a {
+  text-decoration: none; /* Enlever le surlignement des liens */
+    color: white;
+}
+
+.site-nav li {
+  margin-left: 25px; /* Réduction de la marge entre les éléments */
+  margin-right: 55px; /* Réduction de la marge entre les éléments */
+  display: inline-block;
+}
+
+.site-nav li:first-child {
+  margin-left: 0; /* Supprime la marge à gauche du premier élément */
+}
+
+.site-nav li img {
+  color: inherit;
+  margin-left: auto;
+  width: 90px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.site-nav li span {
+
+  text-decoration: none;
+  font-size: 28px;
+  font-family: "Oswald", sans-serif;
+  position: relative; /* Position relative pour permettre le positionnement absolu du pseudo-élément */
+  overflow: hidden; /* Masquer le dépassement des éléments enfants */
+  background-color: transparent; /* Couleur de fond transparente */
+}
+
+/* Effet de néon */
+.site-nav li span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0%; /* Bordure arrondie */
+  background-color: #f95eba; /* Couleur de fond néon */
+  box-shadow: 0 0 15px 5px var(--main-red); /* Ombre de style néon */
+  opacity: 0; /* Masquer l'ombre par défaut */
+  transition: opacity 0.3s ease; /* Transition pour l'effet de fondu */
+  z-index: -1; /* Envoyer derrière le texte */
+}
+
+.site-nav li span:hover::before,
+.site-nav li span:focus::before {
+  opacity: 1; /* Afficher l'ombre au survol ou au focus */
+}
+
+/* Pour les écrans plus petits */
+@media (max-width: 767px) {
+  .site-header__wrapper {
+    flex-direction: column; /* Empiler les éléments verticalement */
+    align-items: center; /* Centrer les éléments horizontalement */
+    padding: 10px; /* Réduire l'espace autour des éléments */
+  }
+
+  .site-branding {
+    max-width: 100%; /* Réglez la largeur maximale sur 100% pour qu'elle s'adapte à la largeur de l'écran */
+    text-align: center; /* Centrer le texte */
+  }
+
+  .site-branding__image {
+    display: block; /* Afficher l'image en tant que bloc pour centrer horizontalement */
+    margin: 0 auto; /* Centrer horizontalement */
+    width: 150px; /* Ajuster la taille maximale de l'image */
+    height: auto; /* Ajuster la hauteur automatiquement */
+    margin-bottom: 10px; /* Ajouter de l'espace sous l'image */
+  }
+
+  .site-branding__title,
+  .site-branding__description {
+  	font-size: 16px;
+    text-align: center; /* Centrer le texte */
+    margin: 0 auto; /* Centrer horizontalement */
+    margin-bottom: 10px; /* Ajouter de l'espace sous les éléments */
+    max-width: 100%; /* Ajuster la largeur maximale si nécessaire */
+  }
+
+  .site-nav {
+    display: flex; /* Afficher les éléments de la navbar en ligne */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    flex-wrap: wrap; /* Permettre le passage à la ligne des éléments si nécessaire */
+  }
+  
+  .site-nav span {
+    display: none;
+  }
+  
+  .site-nav li {
+  margin-left: 30px; /* Réduction de la marge entre les éléments */
+  margin-right: 13.75px; /* Réduction de la marge entre les éléments */
+  display: inline-block;
+}
+
+  
+  .site-nav li img {
+    width: 30px;
+  }
+}
+
+/* Pour les écrans moyens */
+@media (min-width: 768px) and (max-width: 1280px) {
+	  .site-header__wrapper {
+    flex-direction: column; /* Empiler les éléments verticalement */
+    align-items: center; /* Centrer les éléments horizontalement */
+    padding: 5px; /* Réduire l'espace autour des éléments */
+  }
+  
+	  .site-branding__image {
+    display: block; /* Afficher l'image en tant que bloc pour centrer horizontalement */
+    margin: 0 auto; /* Centrer horizontalement */
+    width: 150px; /* Ajuster la taille maximale de l'image */
+    height: auto; /* Ajuster la hauteur automatiquement */
+    margin-bottom: 10px; /* Ajouter de l'espace sous l'image */
+  }
+  
+  .site-branding__title, .site-branding__description {
+    font-size: 28px; /* Ajuster la taille de la description pour les écrans moyens */
+        text-align: center; /* Centrer le texte */
+    margin: 0 auto; /* Centrer horizontalement */
+    margin-bottom: 10px; /* Ajouter de l'espace sous les éléments */
+    max-width: 100%; /* Ajuster la largeur maximale si nécessaire */
+  }
+  
+  .site-nav li {
+  margin-left: 60px; /* Réduction de la marge entre les éléments */
+  margin-right: 27.5px; /* Réduction de la marge entre les éléments */
+  display: inline-block;
+}
+
+  
+    .site-nav span {
+    display: none;
+  }
+
+  .site-nav li img {
+    width: 60px; /* Ajuster la taille des icônes pour les écrans moyens */
+  }
+}
+
+/* Welcome section */
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+}
+
+.bio-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 130vh;
+  padding: 0 2rem;
+    background-color: var(--main-gray);
+}
+
+/* Projects section */
+
+.projects-section {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: var(--main-blue);
+}
+
+.projects-section-header {
+  max-width: 640px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+@media (max-width: 28.75em) {
+  .projects-section-header {
+    font-size: 4rem;
+  }
+}
+
+/* "Automagic" image grid using no media queries */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 30.625em) {
+  .projects-section {
+    padding: 6rem 1rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  background: var(--main-gray);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.code {
+  color: var(--main-gray);
+  transition: color 0.3s ease-out;
+}
+
+.project:hover .code {
+  color: var(--main-red);
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-purple);
+  transition: background 0.3s ease-out;
+  font-family: "Oswald", sans-serif;
+  color: var(--main-white);
+  box-shadow: 0 0 15px 5px #f95eba;
+  text-decoration: none;
+  
+}
+
+.btn-show-all:hover {
+  background: linear-gradient(to left, var(--main-purple), var(--gradient-blue));
+}
+
+.btn-show-all:hover > i {
+  transform: translateX(2px);
+}
+
+.btn-show-all > i {
+  margin-left: 10px;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.btn-show-all a {
+	display: none;
+}
+
+/* Contact section */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+    background-color: #000;
+  background-image: linear-gradient(62deg, #181719 0%, #3a3d40 100%);
+}
+
+.contact-section-header > h2 {
+  font-size: 6rem;
+}
+
+@media (max-width: 28.75em) {
+  .contact-section-header > h2 {
+    font-size: 4rem;
+  }
+}
+
+.contact-section-header > p {
+  font-style: italic;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  margin-bottom: 170px;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+  text-decoration: none;
+  color: var(--main-white);
+  font-family: "Oswald", sans-serif;
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+}
+
+/* Footer */
+
+footer {
+    font-family: "Oswald", sans-serif;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background: #000;
+  border-top: 4px solid var(--main-red);
+  color: white;
+}
+
+footer > p {
+  margin: 2rem;
+  font-size: 1.5rem;
+}
+
+footer i {
+  vertical-align: middle;
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  footer > p {
+  font-size: 10px;
+}
+}

@@ -1,0 +1,65 @@
+:root {
+  --primary-color: #f95eba;
+  --secondary-color: #a67adc;
+}
+
+/* CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+	font-family: "Oswald", sans-serif;
+	font-style: normal;
+	font-size: 64px;
+	text-align: center;
+	color: #ffffff;
+}
+
+/* FOOTER SECTION */
+#main-footer {
+  border-top: solid 4px var(--primary-color);
+  background-color: #000; /* Utilisation de la variable pour la couleur de fond */
+  color: #fff;
+  bottom: 0;
+  width: 100%; /* Définir la largeur à 100% */
+  position: fixed;
+}
+
+.footer-container {
+  padding: 1rem 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#main-footer .footer-container p {
+  font-size: 1.2rem;
+}
+
+#main-footer #creator a {
+  text-decoration: underline;
+  color: #eee;
+  width: 100%;
+  line-height: 1.5;
+}
+
+/* SMARTPHONE */
+@media (max-width: 768px) {
+	#main-footer {
+	width: 100%;	
+	}
+  #menu {
+    padding: 0rem 1rem;
+    justify-content: center;
+  }
+
+  #main-footer .footer-container {
+    flex-direction: column;
+  }
+
+  #main-footer #creator {
+    margin-top: 1rem;
+  }
+}

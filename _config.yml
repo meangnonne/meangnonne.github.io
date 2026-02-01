@@ -1,0 +1,26 @@
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "index"
+      author: "Frick"
+permalink: /:year/:month/:title/
+
+
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Build settings
+plugins:
+  - jekyll-feed
+  
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  
+include:
+  - scripts
+  - images

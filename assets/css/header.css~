@@ -1,0 +1,148 @@
+:root {
+  --primary-color: #f95eba;
+  --secondary-color: #a67adc;
+}
+
+.symbols {
+  color: inherit;
+  margin-left: auto;
+  max-width: 50px;
+  max-height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+
+.site-branding__image {
+  color: inherit;
+  margin-left: auto;
+  max-width: 250px;
+  max-height: 250px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+
+.site-header {
+  background-image: url('../images/banner_pixels.png');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  text-align: center;
+}
+
+.site-header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-branding {
+  align-items: center;
+  display: flex;
+}
+
+.site-branding__title {
+  font-family: "Jacquard 12", system-ui;
+  font-style: normal;
+  font-size: 64px;
+  color: #ffffff;
+  text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+.site-branding__description {
+  font-family: "Micro 5", sans-serif;
+  font-style: normal;
+  font-size: 32px;
+  color: #ffffff;
+  text-shadow: 5px 5px 0px rgba(0, 0, 0, 0.2);
+  text-align: right;
+}
+
+/* Styles pour les écrans larges */
+.site-nav {
+  list-style: none;
+  margin: 0 auto; /* Ajout de marges automatiques à gauche et à droite */
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centrer les éléments horizontalement */
+}
+
+.site-nav li {
+  margin-left: 10px; /* Réduction de la marge entre les éléments */
+  margin-right: 10px; /* Réduction de la marge entre les éléments */
+}
+
+.site-nav li a {
+  color: white;
+  text-decoration: none;
+  font-size: 28px;
+  font-family: "Oswald", sans-serif;
+  position: relative; /* Position relative pour permettre le positionnement absolu du pseudo-élément */
+  overflow: hidden; /* Masquer le dépassement des éléments enfants */
+  background-color: transparent; /* Couleur de fond transparente */
+}
+
+/* Effet de néon */
+.site-nav li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10%; /* Bordure arrondie */
+  background-color: #f95eba; /* Couleur de fond néon */
+  box-shadow: 0 0 15px 5px #f95eba; /* Ombre de style néon */
+  opacity: 0; /* Masquer l'ombre par défaut */
+  transition: opacity 0.3s ease; /* Transition pour l'effet de fondu */
+  z-index: -1; /* Envoyer derrière le texte */
+}
+
+.site-nav li a:hover::before,
+.site-nav li a:focus::before {
+  opacity: 1; /* Afficher l'ombre au survol ou au focus */
+}
+
+/* Media query pour les écrans plus petits (tablettes et smartphones) */
+@media (max-width: 768px) {
+  .site-header__wrapper {
+    flex-direction: column; /* Empiler les éléments verticalement */
+    align-items: center; /* Centrer les éléments horizontalement */
+  }
+
+  .site-branding {
+    max-width: 100%; /* Réglez la largeur maximale sur 100% pour qu'elle s'adapte à la largeur de l'écran */
+    text-align: center; /* Centrer le texte */
+  }
+
+  .site-branding__image {
+    display: block; /* Afficher l'image en tant que bloc pour centrer horizontalement */
+    margin: 0 auto; /* Centrer horizontalement */
+    max-width: 100%; /* Ajuster la taille maximale de l'image */
+    height: auto; /* Ajuster la hauteur automatiquement */
+  }
+
+  .site-branding__title,
+  .site-branding__description {
+    text-align: center; /* Centrer le texte */
+    margin: 0 auto; /* Centrer horizontalement */
+    margin-right: 20px; /* Ajouter une marge à droite pour espacer les éléments de l'extrémité droite */
+    max-width: 100%; /* Ajuster la largeur maximale si nécessaire */
+  }
+
+  .site-nav {
+    display: flex; /* Afficher les éléments de la navbar en ligne */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    flex-wrap: wrap; /* Permettre le passage à la ligne des éléments si nécessaire */
+  }
+
+  .site-nav li {
+    margin: 10px; /* Ajouter de l'espace entre les éléments de la navbar */
+  }
+}

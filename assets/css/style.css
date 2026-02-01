@@ -103,8 +103,8 @@ p {
 .symbols {
   color: none;
   margin-left: auto;
-  max-width: 100px; 
-  max-height: 100px;
+  max-width: 50px; 
+  max-height: 50px;
   display: inline-block;
   vertical-align: middle;
   border-radius: 2px;
@@ -231,7 +231,7 @@ list-style: none;
 }
 
 .menu-links li {
-  margin-left: 20px;
+  margin-left: 100px;
 }
 
 .menu-links li a {
